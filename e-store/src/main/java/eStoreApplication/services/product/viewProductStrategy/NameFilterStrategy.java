@@ -9,7 +9,7 @@ public class NameFilterStrategy implements ProductFilterStrategy {
     @Override
     public List<Product> filter(ProductRepository repository, ViewProductRequest request) {
         if(request.getProductName() != null){
-            return repository.findAllByProductNameDescription(request.getProductName());
+            return repository.findAllByProductNameDescription(request.getProductName().toUpperCase());
         }
         return List.of();
     }

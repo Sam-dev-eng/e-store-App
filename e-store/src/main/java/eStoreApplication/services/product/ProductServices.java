@@ -5,7 +5,7 @@ import eStoreApplication.dtos.responses.*;
 
 public interface ProductServices {
     ViewProductResponse viewProduct(ViewProductRequest request);
-    ViewAllProductResponse viewAllProductsByName(ViewAllProductRequest request);
+    ViewAllProductResponse viewAllProducts(ViewAllProductRequest request);
     DeleteProductResponse deleteProductById(DeleteProductRequest request);
     FindProductResponse findProduct(FindProductRequest request);
     PaymentResponse productPrice(PaymentRequest request);

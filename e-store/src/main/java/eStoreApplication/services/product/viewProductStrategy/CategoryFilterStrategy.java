@@ -10,7 +10,7 @@ public class CategoryFilterStrategy implements ProductFilterStrategy {
     @Override
     public List<Product> filter(ProductRepository repository, ViewProductRequest request) {
         if(request.getProductCategory() != null){
-            return repository.findAllByCategory(request.getProductCategory());
+            return repository.findAllByCategory(request.getProductCategory().toUpperCase());
         }
         return List.of();
     }

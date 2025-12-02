@@ -19,10 +19,10 @@ public class Product {
     String price;
     String createdOn;
     String lastUpdated;
-    @DBRef
-    User confirmPayment;
-    @DBRef
-    User owner;
+
+    String confirmPayment;
+
+    String owner;
     boolean isDelivered;
     Map<User, List<String>> descriptions;
 

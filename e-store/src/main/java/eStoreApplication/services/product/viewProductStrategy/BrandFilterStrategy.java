@@ -10,7 +10,7 @@ public class BrandFilterStrategy implements ProductFilterStrategy {
     @Override
     public List<Product> filter(ProductRepository repository, ViewProductRequest request) {
         if(request.getProductBrand() != null){
-            return repository.findAllByBrand(request.getProductBrand());
+            return repository.findAllByBrand(request.getProductBrand().toUpperCase());
         }
 
         return List.of();

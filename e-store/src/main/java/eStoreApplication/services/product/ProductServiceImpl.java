@@ -22,6 +22,8 @@ import static eStoreApplication.utils.Mapper.*;
 public class ProductServiceImpl implements ProductServices{
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    UserRepository userRepository;
 
 
     @Override
@@ -33,7 +35,10 @@ public class ProductServiceImpl implements ProductServices{
     }
 
     @Override
-    public ViewAllProductResponse viewAllProductsByName(ViewAllProductRequest request) {
+    public ViewAllProductResponse viewAllProducts(ViewAllProductRequest request) {
+        Optional<User> user = userRepository.findById(request.getUserId());
+        if(user.isEmpty()) throw new UserNotFoundException("user is not found");
+        if(user.get().getRole().equals("CUSTOMER")) return null;
         return mapViewAllResponse(productRepository.findAll());
     }
 
@@ -61,7 +66,7 @@ public class ProductServiceImpl implements ProductServices{
 
     @Override
     public UpdateProductResponse updateProductPrice(UpdateProductRequest request) {
-        List<Product> products = productRepository.findAllByProductNameDescription(request.getProductNameDescription());
+        List<Product> products = productRepository.findAllByProductNameDescription(request.getProductNameDescription().toUpperCase());
         List<Product> updated = changePrices(products, request.getNewPrice());
         List<Product> saved = productRepository.saveAll(updated);
         return updatedResponse(saved);

@@ -33,13 +33,14 @@ public class Mapper {
 
     public static Product createProduct(UploadProductRequest request){
         Product product = new Product();
-        product.setBrand(request.getBrand());
-        product.setProductNameDescription(request.getProductName());
+        product.setBrand(request.getBrand().toUpperCase());
+        product.setProductNameDescription(request.getProductName().toUpperCase());
         product.setCategory(Categories.valueOf(request.getCategory().toUpperCase()));
-        product.setType(request.getType());
+        product.setType(request.getType().toUpperCase());
         product.setPrice(request.getPrice());
         String date = DateTimeFormatter.ofPattern("EEEE, MMMM dd, yyyy").format(LocalDateTime.now());
         product.setCreatedOn(date);
+        product.setOwner("null");
         return product;
     }
 
@@ -76,11 +77,11 @@ public class Mapper {
         response.setPrice(product.getPrice());
         response.setCreatedOn(product.getCreatedOn());
         response.setDelivered(product.isDelivered());
-        response.setOwner(product.getOwner().toString());
+        response.setOwner(product.getOwner());
         response.setProductNameDescription(product.getProductNameDescription());
         response.setLastUpdated(product.getLastUpdated());
         response.setDescriptions(product.getDescriptions());
-        response.setConfirmPayment(product.getConfirmPayment().toString());
+        response.setConfirmPayment(product.getConfirmPayment());
         return response;
     }
     public static DeleteProductResponse deleteResponse(){

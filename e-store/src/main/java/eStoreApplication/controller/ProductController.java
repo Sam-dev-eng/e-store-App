@@ -37,7 +37,7 @@ public class ProductController {
         return productServices.deleteProductById(request);
     }
     @GetMapping("/viewAll")
-    public ViewAllProductResponse viewAllproductsByName(@RequestBody ViewAllProductRequest request){
-        return productServices.viewAllProductsByName(request);
+    public ViewAllProductResponse viewAllproducts(@RequestBody ViewAllProductRequest request){
+        return productServices.viewAllProducts(request);
     }
 }
