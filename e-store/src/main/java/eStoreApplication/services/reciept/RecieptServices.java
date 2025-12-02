@@ -8,8 +8,6 @@ import eStoreApplication.dtos.responses.ConfirmPaymentResponse;
 import eStoreApplication.dtos.responses.DeleteRecieptResponse;
 import eStoreApplication.dtos.responses.FindAllRecieptsResponse;
 import eStoreApplication.dtos.responses.FindRecieptResponse;
-import org.eStoreApplication.dtos.requests.*;
-import org.eStoreApplication.dtos.responses.*;
 
 public interface RecieptServices {
     ConfirmPaymentResponse comfirmPayment(ConfirmPaymentRequest request);

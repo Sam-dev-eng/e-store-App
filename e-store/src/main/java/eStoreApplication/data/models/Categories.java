@@ -1,5 +1,5 @@
 package eStoreApplication.data.models;
 
 public enum Categories {
-    CLOTHING,FOODSTUFF,ELECTRONICS,FURNITURES,COSMETICS;
+    CLOTHING,FOODSTUFF,ELECTRONICS, FURNITURE,COSMETICS;
 }

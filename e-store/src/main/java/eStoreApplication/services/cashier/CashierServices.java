@@ -2,8 +2,6 @@ package eStoreApplication.services.cashier;
 
 import eStoreApplication.dtos.requests.*;
 import eStoreApplication.dtos.responses.*;
-import org.eStoreApplication.dtos.requests.*;
-import org.eStoreApplication.dtos.responses.*;
 
 public interface CashierServices {
     UpdateProductResponse updateProduct(UpdateProductRequest request);
