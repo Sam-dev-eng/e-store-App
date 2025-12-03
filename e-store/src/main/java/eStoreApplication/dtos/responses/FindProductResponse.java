@@ -16,8 +16,8 @@ public class FindProductResponse {
     String createdOn;
     String lastUpdated;
     String confirmPayment;
-
     String owner;
     boolean isDelivered;
     Map<User, List<String>> descriptions;
 }
+

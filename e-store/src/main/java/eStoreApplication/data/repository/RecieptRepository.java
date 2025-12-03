@@ -6,6 +6,10 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+// @Repository
+// public interface ReceiptRepository extends MongoRepository<Receipt, String> {
+// }
+
 @Repository
 public interface RecieptRepository extends MongoRepository<@NonNull Receipt,@NonNull String> {
     List<Receipt> findAllByPayerName(String payerName);

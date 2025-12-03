@@ -13,8 +13,16 @@ public class Receipt {
     String payerNumber;
     String payerEmail;
     String amountPaid;
-    String PaymentDate;
+    // naming convention error fixed PaymentDate to paymentDate
+    String paymentDate;
     boolean hasPaid;
     String proofOfPayment;
 
+    // Custom constructor for service use
+    // public Receipt(String payerName, String payerNumber, String payerEmail, String amountPaid) {
+    //     this.payerName = payerName;
+    //     this.payerNumber = payerNumber;
+    //     this.payerEmail = payerEmail;
+    //     this.amountPaid = amountPaid;
+    // }
 }
