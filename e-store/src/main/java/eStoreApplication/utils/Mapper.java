@@ -10,6 +10,7 @@ import eStoreApplication.dtos.responses.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Mapper {
@@ -91,6 +92,24 @@ public class Mapper {
         return response;
     }
 
+    public static AddToCartResponse  addToCartResponse(int total){
+        AddToCartResponse response = new AddToCartResponse();
+        response.setTotalPrice(total);
+        return response;
+    }
+    public static User mapCart(User user, Product product){
+        user.getCart().remove(product);
+        return user;
+    }
+
+    public static RemoveFromCartResponse removalResponse(User user){
+        RemoveFromCartResponse response = new RemoveFromCartResponse();
+        HashMap<String,Integer> map = new HashMap<>();
+        for(var products: user.getCart().entrySet())map.put(products.getValue().toString(),products.getValue());
+        response.setCart(map);
+        return response;
+    }
+
     public static User mapCashier(RegisterCashierRequest request){
         User user = new User();
         user.setName(request.getName());
@@ -107,4 +126,6 @@ public class Mapper {
         response.setPassword(saved.getPassword());
         return response;
     }
+
+
 }
