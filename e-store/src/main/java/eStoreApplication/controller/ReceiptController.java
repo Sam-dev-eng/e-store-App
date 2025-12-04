@@ -26,10 +26,9 @@ public class ReceiptController {
     public DeleteRecieptResponse deleteReciept(@RequestBody DeleteRecieptRequest request){
         return receiptService.deleteReciept(request);
     }
+
+    @GetMapping("/findReceipt")
+    public FindRecieptResponse findReceipt(@RequestBody FindRecieptRequest request){
+        return receiptService.findReceipt(request);
+    }
 }   
-
-
- ConfirmPaymentResponse comfirmPayment(ConfirmPaymentRequest request);
-    FindAllRecieptsResponse findAllReciepts(FindAllRecieptRequest request);
-    DeleteRecieptResponse deleteReciept(DeleteRecieptRequest request);
-    FindRecieptResponse findReciept(FindRecieptRequest request);
