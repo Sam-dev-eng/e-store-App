@@ -3,13 +3,13 @@ package eStoreApplication.utils;
 import eStoreApplication.data.models.Categories;
 import eStoreApplication.data.models.Product;
 import eStoreApplication.data.models.User;
-import eStoreApplication.dtos.requests.RegisterCashierRequest;
 import eStoreApplication.dtos.requests.UploadProductRequest;
 import eStoreApplication.dtos.responses.*;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Mapper {
@@ -91,20 +91,22 @@ public class Mapper {
         return response;
     }
 
-    public static User mapCashier(RegisterCashierRequest request){
-        User user = new User();
-        user.setName(request.getName());
-        user.setRole("CASHIER");
-        user.setPhoneNumber(request.getPhoneNumber());
-        user.setEmail(request.getEmail());
-        user.setPassword(request.getPassword());
+    public static AddToCartResponse  addToCartResponse(int total){
+        AddToCartResponse response = new AddToCartResponse();
+        response.setTotalPrice(total);
+        return response;
+    }
+    public static User mapCart(User user, Product product){
+        user.getCart().remove(product);
         return user;
     }
 
-    public static RegisterCashierResponse registerResponse(User saved){
-        RegisterCashierResponse response = new RegisterCashierResponse();
-        response.setEmail(saved.getEmail());
-        response.setPassword(saved.getPassword());
+    public static RemoveFromCartResponse removalResponse(User user){
+        RemoveFromCartResponse response = new RemoveFromCartResponse();
+        HashMap<String,Integer> map = new HashMap<>();
+        for(var products: user.getCart().entrySet())map.put(products.getValue().toString(),products.getValue());
+        response.setCart(map);
         return response;
     }
+
 }

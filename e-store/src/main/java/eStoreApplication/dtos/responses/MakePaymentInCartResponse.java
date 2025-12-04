@@ -3,6 +3,6 @@ package eStoreApplication.dtos.responses;
 import lombok.Data;
 
 @Data
-public class AddDescriptionResponse {
-    String message;
+public class MakePaymentInCartResponse {
+    int totalPrice;
 }

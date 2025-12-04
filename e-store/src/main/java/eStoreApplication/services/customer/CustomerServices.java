@@ -8,11 +8,11 @@ public interface CustomerServices {
     AddToCartResponse addToCart(AddToCartRequest request);
     ViewAllProductResponse viewAllProducts(ViewAllProductRequest request);
     FindProductResponse findProduct(FindProductRequest request);
-    PaymentResponse makePayment(PaymentRequest request);
+    MakePaymentInCartResponse makePayment(String userid);
     ConfirmPaymentResponse comfirmPayment(ConfirmPaymentRequest request);
-    ViewCartResponse viewCart(ViewCartRequest request);
+    ViewCartResponse viewCart(String Id);
     RemoveFromCartResponse removeFromCart(RemoveFromCartRequest request);
     TrackProductResponse trackProductStatus(TrackProductRequest request);
     ConfirmDeliveryResponse confirmDelivery(ConFirmDeliveryRequest request);
-    AddDescriptionResponse addDescription(AddDescriptionRequest request);
+    AddDescriptionResponse addProductDescription(AddDescriptionRequest request);
 }
