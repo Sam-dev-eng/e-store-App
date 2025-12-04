@@ -1,42 +1,48 @@
-package eStoreApplication.services.cashier;
-
+package eStoreApplication.services.admin;
+import eStoreApplication.data.models.User;
+import eStoreApplication.data.repository.UserRepository;
 import eStoreApplication.dtos.requests.*;
 import eStoreApplication.dtos.responses.*;
-import eStoreApplication.services.product.ProductServices;
-import eStoreApplication.services.reciept.RecieptServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import static eStoreApplication.utils.Mapper.mapCashier;
+import static eStoreApplication.utils.Mapper.registerResponse;
+
 @Service
-public class CashierServices implements CashierServicesInterface{
+public class AdminServicesImpl implements AdminServices{
     @Autowired
-    ProductServices productService;
-    @Autowired
-    RecieptServices receiptService;
+    UserRepository userRepository;
+
+    @Override
+    public RegisterCashierResponse registerCashier(RegisterCashierRequest request) {
+        User user = mapCashier(request);
+        User saved = userRepository.save(user);
+        return registerResponse(saved);
+    }
 
     @Override
     public UpdateProductResponse updateProduct(UpdateProductRequest request) {
-        return productService.updateProductPrice(request);
+        return null;
     }
 
     @Override
     public FindProductResponse findProducts(FindProductRequest request) {
-        return productService.findProduct(request);
+        return null;
     }
 
     @Override
     public ConfirmPaymentResponse confirmPayment(ConfirmPaymentRequest request) {
-        return receiptService.confirmPayment(request);
-
+        return null;
     }
 
     @Override
     public FindAllRecieptsResponse findAllReceipts(FindAllRecieptRequest request) {
-        return receiptService.findAllReceipts(request);
+        return null;
     }
 
     @Override
     public FindRecieptResponse findReceipt(FindRecieptRequest request) {
-        return receiptService.findReceipt(request);
+        return null;
     }
 }

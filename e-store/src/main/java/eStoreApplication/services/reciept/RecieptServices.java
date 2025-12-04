@@ -10,9 +10,9 @@ import eStoreApplication.dtos.responses.FindAllRecieptsResponse;
 import eStoreApplication.dtos.responses.FindRecieptResponse;
 
 public interface RecieptServices {
-    ConfirmPaymentResponse comfirmPayment(ConfirmPaymentRequest request);
-    FindAllRecieptsResponse findAllReciepts(FindAllRecieptRequest request);
-    DeleteRecieptResponse deleteReciept(DeleteRecieptRequest request);
-    FindRecieptResponse findReciept(FindRecieptRequest request);
+    ConfirmPaymentResponse confirmPayment(ConfirmPaymentRequest request);
+    FindAllRecieptsResponse findAllReceipts(FindAllRecieptRequest request);
+    DeleteRecieptResponse deleteReceipt(DeleteRecieptRequest request);
+    FindRecieptResponse findReceipt(FindRecieptRequest request);
 
 }

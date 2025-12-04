@@ -2,7 +2,6 @@ package eStoreApplication.controller;
 
 import eStoreApplication.dtos.requests.*;
 import eStoreApplication.dtos.responses.*;
-import eStoreApplication.services.cashier.CashierServices;
 import eStoreApplication.services.cashier.CashierServicesInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,13 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("cashier")
 public class CashierController {
-
-    private CashierServicesInterface cashierServices;
-
     @Autowired
-    public CashierController(CashierServicesInterface cashierServices) {
-        this.cashierServices = cashierServices;
-    }
+     CashierServicesInterface cashierServices;
+
+
 
     @PutMapping("/product/update")
     public ResponseEntity<?> updateProduct(@RequestBody UpdateProductRequest request) {
@@ -56,7 +52,7 @@ public class CashierController {
     @PostMapping("/receipt/all")
     public ResponseEntity<?> findAllReceipts(@RequestBody FindAllRecieptRequest request) {
         try{
-            FindAllRecieptsResponse findAllRecieptsResponse = cashierServices.findAllReciepts(request);
+            FindAllRecieptsResponse findAllRecieptsResponse = cashierServices.findAllReceipts(request);
             return new ResponseEntity<>(new ApiResponse(true, findAllRecieptsResponse), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),HttpStatus.BAD_REQUEST);
@@ -66,7 +62,7 @@ public class CashierController {
     @PostMapping("/receipt/find")
     public ResponseEntity<?> findReceipt(@RequestBody FindRecieptRequest request) {
         try{
-            FindRecieptResponse findRecieptResponse = cashierServices.findReciept(request);
+            FindRecieptResponse findRecieptResponse = cashierServices.findReceipt(request);
             return new ResponseEntity<>(new ApiResponse(true, findRecieptResponse), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new ApiResponse(false,e.getMessage()),HttpStatus.BAD_REQUEST);

@@ -10,10 +10,10 @@ import eStoreApplication.dtos.responses.FindAllRecieptsResponse;
 import eStoreApplication.dtos.responses.FindRecieptResponse;
 
 public class RecieptServicesProxy implements RecieptServices {
-    private RecieptServicesImpl realService;
+    private RecieptServiceImpl realService;
 
     public RecieptServicesProxy() {
-        this.realService = new RecieptServicesImpl();
+        this.realService = new RecieptServiceImpl();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class RecieptServicesProxy implements RecieptServices {
 
         } else {
             // System.out.println("[PROXY] FAILED
-            response.getMessage()
+            response.getMessage();
         }
         
         return response;
@@ -54,8 +54,6 @@ public class RecieptServicesProxy implements RecieptServices {
 
     @Override
     public DeleteRecieptResponse deleteReceipt(DeleteRecieptRequest request) {
-        // System.out.println("[PROXY] Deleting receipt")
-        
         if (request == null) {
             System.out.println("[PROXY] ERROR: Request is null");
             DeleteRecieptResponse response = new DeleteRecieptResponse();
@@ -72,19 +70,21 @@ public class RecieptServicesProxy implements RecieptServices {
             return response;
         }
 
-        // System.out.println("[PROXY] Receipt ID: " + 
-        request.getReceiptId());
-        
+        // System.out.println("[PROXY] Receipt ID: " +
+        request.getReceiptId();
+
         DeleteRecieptResponse response = realService.deleteReceipt(request);
-        
+
         // if (response.isSuccess()) {
         //     System.out.println("[PROXY] SUCCESS: Receipt deleted");
         // } else {
         //     System.out.println("[PROXY] FAILED: " + response.getMessage());
         // }
-        
+
         return response;
     }
+
+
 
     @Override
     public FindRecieptResponse findReceipt(FindRecieptRequest request) {
@@ -105,7 +105,7 @@ public class RecieptServicesProxy implements RecieptServices {
         }
 
         // System.out.println("[PROXY] Receipt ID")
-        request.getReceiptId());
+        request.getReceiptId();
         
         FindRecieptResponse response = realService.findReceipt(request);
         

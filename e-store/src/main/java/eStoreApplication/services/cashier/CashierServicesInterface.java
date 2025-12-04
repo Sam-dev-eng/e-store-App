@@ -7,6 +7,6 @@ public interface CashierServicesInterface {
     UpdateProductResponse updateProduct(UpdateProductRequest request);
     FindProductResponse findProducts(FindProductRequest request);
     ConfirmPaymentResponse confirmPayment(ConfirmPaymentRequest request);
-    FindAllRecieptsResponse findAllReciepts(FindAllRecieptRequest request);
-    FindRecieptResponse findReciept(FindRecieptRequest request);
+    FindAllRecieptsResponse findAllReceipts(FindAllRecieptRequest request);
+    FindRecieptResponse findReceipt(FindRecieptRequest request);
 }

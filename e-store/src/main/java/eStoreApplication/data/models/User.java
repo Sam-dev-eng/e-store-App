@@ -14,5 +14,6 @@ public class User {
     String email;
     String phoneNumber;
     String role;
+    String password;
     Map<Product,Integer> cart;
 }

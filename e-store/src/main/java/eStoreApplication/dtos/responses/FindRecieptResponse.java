@@ -1,5 +1,6 @@
 package eStoreApplication.dtos.responses;
 
+import eStoreApplication.data.models.Receipt;
 import lombok.Data;
 
 @Data

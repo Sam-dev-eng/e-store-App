@@ -2,7 +2,7 @@ package eStoreApplication.controller;
 
 import eStoreApplication.dtos.requests.*;
 import eStoreApplication.dtos.responses.*;
-import eStoreApplication.services.ReceiptService;
+import eStoreApplication.services.reciept.RecieptServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;   
 
@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/receipts")
 public class ReceiptController {
     @Autowired
-    ReceiptService receiptService;
+    RecieptServices receiptService;
 
     @GetMapping("/findAll")
-    public FindAllRecieptResponse findAllReceipts(@RequestBody FindAllRecieptRequest request){
+    public FindAllRecieptsResponse findAllReceipts(@RequestBody FindAllRecieptRequest request){
         return receiptService.findAllReceipts(request);
     }
 
     @PostMapping("/comfirmPayment")
     public ConfirmPaymentResponse comfirmPayment(@RequestBody ConfirmPaymentRequest request){
-        return receiptService.comfirmPayment(request);
+        return receiptService.confirmPayment(request);
     }
 
     @DeleteMapping("/deleteReciept")
     public DeleteRecieptResponse deleteReciept(@RequestBody DeleteRecieptRequest request){
-        return receiptService.deleteReciept(request);
+        return receiptService.deleteReceipt(request);
     }
 
     @GetMapping("/findReceipt")
