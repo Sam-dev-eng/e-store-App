@@ -3,6 +3,7 @@ package eStoreApplication.utils;
 import eStoreApplication.data.models.Categories;
 import eStoreApplication.data.models.Product;
 import eStoreApplication.data.models.User;
+import eStoreApplication.dtos.requests.RegisterCashierRequest;
 import eStoreApplication.dtos.requests.UploadProductRequest;
 import eStoreApplication.dtos.responses.*;
 
@@ -108,5 +109,23 @@ public class Mapper {
         response.setCart(map);
         return response;
     }
+
+    public static User mapCashier(RegisterCashierRequest request){
+        User user = new User();
+        user.setName(request.getName());
+        user.setRole("CASHIER");
+        user.setPhoneNumber(request.getPhoneNumber());
+        user.setEmail(request.getEmail());
+        user.setPassword(request.getPassword());
+        return user;
+    }
+
+    public static RegisterCashierResponse registerResponse(User saved){
+        RegisterCashierResponse response = new RegisterCashierResponse();
+        response.setEmail(saved.getEmail());
+        response.setPassword(saved.getPassword());
+        return response;
+    }
+
 
 }
